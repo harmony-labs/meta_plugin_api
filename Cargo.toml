@@ -1,0 +1,14 @@
+[package]
+name = "meta_plugin_api"
+version = "0.1.0"
+edition = "2021"
+description = "Shared plugin API for meta CLI plugins"
+license = "MIT"
+
+[lib]
+name = "meta_plugin_api"
+path = "src/lib.rs"
+
+[dependencies]
+thiserror = "1"
+anyhow = "1"
