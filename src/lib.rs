@@ -36,8 +36,8 @@ pub type PluginCreate = unsafe fn() -> *mut dyn Plugin;
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use anyhow::{anyhow, Result};
+    use crate::{Plugin, PluginError};
 
     struct MockSuccessPlugin;
     impl Plugin for MockSuccessPlugin {
@@ -90,10 +90,6 @@ mod tests {
         let result = plugin.execute("success_cmd", &[]);
         assert!(result.is_ok());
     }
-    
-    pub use crate::Plugin;
-    pub use crate::HelpMode;
-    pub use crate::PluginError;
 
     #[test]
     fn test_plugin_execute_command_not_found() {
